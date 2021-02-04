@@ -26,7 +26,7 @@ userRouter.get("/getusers", restrict("creator"), async (req, res, next) => {
 //-----------------------------------------------------------------------------
 userRouter.post("/register", async (req, res, next) => {
   try {
-    const { username, password, email, role } = req.body;
+    const { username, password, role } = req.body;
     const user = await db.findUser({ username }).first();
 
     if (user) {
@@ -37,7 +37,6 @@ userRouter.post("/register", async (req, res, next) => {
     const newUser = await db.addUser({
       username,
       password: await bcrypt.hash(password, 12),
-      email,
       role,
     });
     return res.status(201).json({

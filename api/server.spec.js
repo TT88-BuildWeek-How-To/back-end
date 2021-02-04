@@ -15,7 +15,6 @@ describe("GET /", function () {
         .send({
           username: "sam",
           password: "apples",
-          email: "email@email.com",
           role: "creator"
         })
         .then((res) => {

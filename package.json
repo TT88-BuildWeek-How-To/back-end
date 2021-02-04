@@ -10,15 +10,13 @@
     "start": "node index.js",
     "server": "nodemon index.js",
     "prestart": "knex migrate:latest",
-    "test": "jest --watch --verbose",
-    "test": "NODE_ENV=test mocha - timeout 10000"
+    "test": "jest --watch --verbose"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TT88-BuildWeek-How-To/back-end.git"
   },
   "keywords": [],
-  // "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/TT88-BuildWeek-How-To/back-end/issues"
@@ -43,8 +41,7 @@
     "jest": "^26.4.2",
     "nodemon": "^2.0.4"
   },
-"jest": {
-  "testEnvironment":"node"
-  
-}
+  "jest": {
+    "testEnvironment": "node"
+  }
 }

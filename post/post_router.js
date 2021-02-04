@@ -10,7 +10,7 @@ const router = express.Router();
 //-----------------------------------------------------------------------------
 // Returns all posts 
 //-----------------------------------------------------------------------------
-router.get("/getall", async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   try {
     const howtos = await db.getAllHowtos();
     res.status(200).json(howtos);
