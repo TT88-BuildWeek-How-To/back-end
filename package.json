@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
-    "prestart": "knex migrate:latest",
+    "postinstall": "knex migrate:latest",
     "test": "jest --watch --verbose"
   },
   "repository": {
