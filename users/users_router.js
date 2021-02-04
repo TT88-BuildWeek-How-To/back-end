@@ -11,7 +11,7 @@ const userRouter = express.Router();
 //  GETs all user accounts. (You must be logged in with creator role)
 // /api/users/getusers
 //-----------------------------------------------------------------------------
-userRouter.get("/getusers", restrict("creator"), async (req, res, next) => {
+userRouter.get("/", restrict("creator"), async (req, res, next) => {
   try {
     const users = await db.allUsers();
     res.status(200).json(users);
@@ -94,7 +94,7 @@ userRouter.post("/login", async (req, res, next) => {
 //-----------------------------------------------------------------------------
 // PUT updates user   /api/users/update/:id
 //-----------------------------------------------------------------------------
-userRouter.put("/update/:id", restrict("creator"), async (req, res, next) => {
+userRouter.put("/:id", restrict("creator"), async (req, res, next) => {
   try {
     const { id } = req.params;
     const changes = req.body;
@@ -119,7 +119,7 @@ userRouter.put("/update/:id", restrict("creator"), async (req, res, next) => {
 //-----------------------------------------------------------------------------
 // DELETE   user   /api/users/delete/:id
 //-----------------------------------------------------------------------------
-userRouter.delete("/delete/:id", restrict("creator"), async (req, res, next) => {
+userRouter.delete("/:id", restrict("creator"), async (req, res, next) => {
   try {
     const { id } = req.params;
     const deleteduser = db.removeUser(id);

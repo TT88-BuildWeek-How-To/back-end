@@ -22,7 +22,7 @@ router.get("/", async (req, res, next) => {
 //-----------------------------------------------------------------------------
 // Returns post by Id
 //-----------------------------------------------------------------------------
-router.get("/gethowto/:id", (req, res) => {
+router.get("/:id", (req, res) => {
   const { id } = req.params;
   db.getHowtoById(id)
     .then((howto) => {
@@ -44,7 +44,7 @@ router.get("/gethowto/:id", (req, res) => {
 //-----------------------------------------------------------------------------
 // Posts a new; user = subscriber
 //-----------------------------------------------------------------------------
-router.post("/new", restrict("subscriber"), (req, res) => {
+router.post("/", restrict("subscriber"), (req, res) => {
   const howtoData = req.body;
 
   const author = req.token.username;
@@ -67,7 +67,7 @@ router.post("/new", restrict("subscriber"), (req, res) => {
 //-----------------------------------------------------------------------------
 // Updates post;  user = subscriber 
 //-----------------------------------------------------------------------------
-router.put("/update/:id", restrict("subscriber"), (req, res) => {
+router.put("/:id", restrict("subscriber"), (req, res) => {
   const { id } = req.params;
   const changes = req.body;
 
@@ -97,7 +97,7 @@ router.put("/update/:id", restrict("subscriber"), (req, res) => {
 // Updates post;  user = creator
 //-----------------------------------------------------------------------------
 
-router.delete("/delete/:id", restrict("subscriber"), (req, res) => {
+router.delete("/:id", restrict("subscriber"), (req, res) => {
   const { id } = req.params;
 
   db.removeHowto(id)
