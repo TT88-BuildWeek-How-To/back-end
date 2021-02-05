@@ -2,7 +2,8 @@ const express = require("express");
 const db = require("./users_models");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const secrets = require("../config/secrets");
+// const secrets = require("../config/secrets");
+
 const restrict = require("../middleware/restrict");
 /*  USER ROUTER  */
 const userRouter = express.Router();
@@ -43,6 +44,7 @@ userRouter.post("/register", async (req, res, next) => {
       Message: " User was created successfully!",
       newUser,
       // access_token: token
+
     });
   } catch (err) {
     next(err);
@@ -78,7 +80,7 @@ userRouter.post("/login", async (req, res, next) => {
         username: user.username,
         userRole: user.role,
       },
-      "this is our secret"
+      process.env.JWT_Secret
     );
 
     res.cookie("token", token);

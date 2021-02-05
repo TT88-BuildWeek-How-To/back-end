@@ -17,7 +17,7 @@ function restrict(role) {
       }
 
       /*  decode the token, resign the payload, check if signature is valid  */
-      jwt.verify(token, "this is our secret", (err, decoded) => {
+      jwt.verify(token, process.env.JWT_Secret, (err, decoded) => {
         console.log(decoded);
         if (err) {
           return res

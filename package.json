@@ -8,9 +8,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "server": "nodemon index.js",
+    "server": "nodemon --require dotenv/config index.js",
     "postinstall": "knex migrate:latest",
     "test": "jest --watch --verbose"
+
   },
   "repository": {
     "type": "git",
