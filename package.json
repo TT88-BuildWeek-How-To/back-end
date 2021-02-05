@@ -7,11 +7,10 @@
   "description": "POST /api/register",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "server": "nodemon --require dotenv/config index.js",
+    "start": "cross-env NODE_ENV=development node index.js",
+    "server": "cross-env NODE_ENV=development nodemon --require dotenv/config index.js",
     "postinstall": "knex migrate:latest",
     "test": "jest --watch --verbose"
-
   },
   "repository": {
     "type": "git",
@@ -27,6 +26,7 @@
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "express": "^4.17.1",
     "helmet": "^4.1.1",
     "jsonwebtoken": "^8.5.1",
