@@ -1,5 +1,5 @@
 const knex = require('knex')
-const { development } = require('../knexfile')
+// const { development } = require('../knexfile')
  
 
 const knexfile = require('../knexfile')
